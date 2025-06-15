@@ -3,7 +3,7 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
-import { corsOptions } from './config/corsOptions.js';
+// import { corsOptions } from './config/corsOptions.js';
 import { logRequestMiddleware } from './middleware/logger.js';
 
 
@@ -20,9 +20,13 @@ import stripeRouter from './components/stripe/routes/index.js'
 const app = express();
 
 // middlewares
-
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
+app.use(cors({
+  origin: true, // reflect the request origin
+  credentials: true,
+}));
+app.options('*', cors()); // allow preflight requests
+// app.use(cors(corsOptions));
+// app.options('*', cors(corsOptions));
 app.use(express.json({ limit: '16kb' }));
 app.use(express.urlencoded({ extended: true, limit: '16kb' }));
 app.use(cookieParser());
