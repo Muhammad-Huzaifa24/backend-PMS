@@ -1,8 +1,8 @@
-import connectDB from "./config/db/index.js";
+import connectDB from "./src/config/db/index.js";
 import dotenv from "dotenv";
-import { app } from "./app.js";
-import { port } from "./constants.js";
-import logger from "./utils/logger.js";
+import { app } from "./src/app.js";
+import { port } from "./src/constants.js";
+import logger from "./src/utils/logger.js";
 import chalk from "chalk";
 import http from "http"
 import * as socketIo from "socket.io";
