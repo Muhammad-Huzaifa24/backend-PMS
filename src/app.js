@@ -21,8 +21,8 @@ const app = express();
 
 // middlewares
 app.use(cors({
-  origin: true, // reflect the request origin
-  credentials: true,
+  origin: 'https://project-management-dashboard-ruddy.vercel.app',
+  credentials: true
 }));
 app.options('*', cors()); // allow preflight requests
 // app.use(cors(corsOptions));
